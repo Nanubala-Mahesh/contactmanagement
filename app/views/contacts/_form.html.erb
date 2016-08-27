@@ -14,99 +14,98 @@
 
 
 
-<div class="row">
-<div class="col-md-6">
-    <div class="page-header">
-      <h3> Add Contact </h3>
+
+
+<div class="page-header">
+  <h3> Add Contact </h3>
+</div>
+<div class="field">
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %>
+</div>
+
+
+
+
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">                  <span class="label label-default">Address</span></a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="label label-default">Phone</span></a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+
+
+      <h3> Add Address </h3>
+      <div class="field">
+
+        <%= f.fields_for :addresses do |li| %>
+        <%= li.text_field :address %>
+
+        <%= li.link_to_remove "Remove item" %>
+        <% end %>
+        <%= f.link_to_add "Add Address ", :addresses %>
+
+
+        <h3> Add Country </h3>
+
+
+        <%= f.fields_for :addresses do |li| %>
+        <%= li.text_field :country %>
+
+        <%= li.link_to_remove "Remove item" %>
+        <% end %>
+        <%= f.link_to_add "Add Country ", :addresses %>
+      </div>
+
+
+
+
     </div>
-    <div class="field">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %>
-    </div>
-  </div>
-
-  
-  <div class="col-md-6">
-    <div>
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">                  <span class="label label-default">Address</span></a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="label label-default">Phone</span></a></li>
-
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-
-
-          <h3> Add Address </h3>
-          <div class="field">
-
-            <%= f.fields_for :addresses do |li| %>
-            <%= li.text_field :address %>
-
-            <%= li.link_to_remove "Remove item" %>
-            <% end %>
-            <%= f.link_to_add "Add Address ", :addresses %>
-
-
-            <h3> Add Country </h3>
-
-
-            <%= f.fields_for :addresses do |li| %>
-            <%= li.text_field :country %>
-
-            <%= li.link_to_remove "Remove item" %>
-            <% end %>
-            <%= f.link_to_add "Add Country ", :addresses %>
-          </div>
 
 
 
+    <div role="tabpanel" class="tab-pane" id="profile">
 
-        </div>
+      <h4> Add Phone Number </h4>
+      <div class="field">
 
+        <%= f.fields_for :phones do |li| %>
+        <%= li.text_field :phone_number %>
 
-
-        <div role="tabpanel" class="tab-pane" id="profile">
-
-          <h4> Add Phone Number </h4>
-          <div class="field">
-
-            <%= f.fields_for :phones do |li| %>
-            <%= li.text_field :phone_number %>
-
-            <%= li.link_to_remove "Remove item" %>
-            <% end %>
-            <%= f.link_to_add "Add Phone Number ", :phones %>
+        <%= li.link_to_remove "Remove item" %>
+        <% end %>
+        <%= f.link_to_add "Add Phone Number ", :phones %>
 
 
-
-          </div>
-
-
-
-
-        </div>
 
       </div>
 
+
+
+
     </div>
 
 
 
+ 
 
 
-    <div class="actions">
-      <%= f.submit "Submit", class: "btn btn-success" %>
-    </div>
-    <% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-success" %>
   </div>
+  <% end %>
 </div>
 
 
